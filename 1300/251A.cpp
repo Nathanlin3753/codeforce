@@ -8,13 +8,13 @@ int main(){
     vector<ll> v(n,0);
     for(int i = 0 ; i < n ; ++i) cin>>v[i];
 
-    int ans = 0 , diff;
-    for(int i = 0 ; i+2 < n ; ++i){
-        diff = lower_bound(v.begin(),v.end(),v[i]+d)-v.begin();
-        if(v[i]+d != v[diff]) --diff;
-        diff -= i;
-        if(diff>=2)
-            ans += (diff*(diff-1))/2;
+    ll ans = 0;
+    int i = 0 , j = 0 , t;
+    while(i<n){
+        while(j+1<n && v[j+1]-v[i]<=d) j++;
+        t = j-i-1;
+        ans += t*(t+1)/2;
+        ++i;
     }
     cout << ans << endl;
     return 0; 
