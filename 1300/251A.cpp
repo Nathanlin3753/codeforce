@@ -3,13 +3,13 @@ using namespace std;
 
 using ll = long long;
 int main(){
-    int n , d;
+    ll n , d;
     cin >> n >> d;
     vector<ll> v(n,0);
     for(int i = 0 ; i < n ; ++i) cin>>v[i];
 
     ll ans = 0;
-    int i = 0 , j = 0 , t;
+    ll i = 0 , j = 0 , t;
     while(i<n){
         while(j+1<n && v[j+1]-v[i]<=d) j++;
         t = j-i-1;
